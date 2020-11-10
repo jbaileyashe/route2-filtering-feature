@@ -1,0 +1,30 @@
+<html>
+<body>
+<script language="javascript">
+  var amt1 = Math.random() * 4000,
+    amt2 = Math.random() * 4000
+
+  document.write("<div>sending requests ...</div>")
+  window.setTimeout(function() { 
+      document.write("<div>op1</div>")
+      fetch("/graphql", {
+        method: "post",
+        body: JSON.stringify({
+          operationName: "op1"
+        })
+      })
+    }, amt1
+  )
+  window.setTimeout(function() { 
+      document.write("<div>op2</div>")
+      fetch("/graphql", {
+        method: "post",
+        body: JSON.stringify({
+          operationName: "op2"
+        })
+      })
+    }, amt2
+  )
+</script>
+</body>
+</html>
